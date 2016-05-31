@@ -1,6 +1,24 @@
-﻿@{
+﻿@using System.Web.UI.WebControls
+@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Hello Azure</h2>
+
+<pre>
+    ProfileUserName: @ViewBag.ProfileUserName<br/>
+    ContextRequestLogonUserIdentityName: @ViewBag.ContextRequestLogonUserIdentityName<br/>
+    LogonUserIdentity: @Html.Raw(ViewBag.ContextRequestLogonUserIdentity));
+    IsAuth: @ViewBag.User.Identity.IsAuthenticated
+    UserIdentityName: @ViewBag.User.Identity.Name
+    UserIdentityAuthenticationType: @ViewBag.User.Identity.AuthenticationType
+</pre>
+
+<script>
+  function prettyjson(jsonString) {
+      var parsed = JSON.parse(jsonString);
+      var pretty = JSON.stringify(parsed, null, 4);
+      return pretty;
+  }
+</script>
