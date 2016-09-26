@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Dynamic;
 using System.Linq;
 using System.Web;
@@ -26,6 +27,7 @@ namespace AzurePaasTest2.Controllers
             }
 
             ViewBag.User = User;
+            ViewBag.ConfigValue = ConfigurationManager.AppSettings["TestConfigSetting"];
             
 
             return View();
