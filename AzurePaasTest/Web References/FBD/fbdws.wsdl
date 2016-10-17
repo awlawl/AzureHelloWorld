@@ -1,0 +1,1873 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="VersionPing">
+        <s:complexType />
+      </s:element>
+      <s:element name="VersionPingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VersionPingResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MediaExistsInBIM-Direct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="materialId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MediaExistsInBIM-DirectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MediaExistsInBIM-DirectResult" type="tns:MediaExistsInBIMResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MediaExistsInBIMResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MaterialId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExistsInBIM" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MediaExistsInBIM-Multi-Direct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="materialIds" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MediaExistsInBIM-Multi-DirectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MediaExistsInBIM-Multi-DirectResult" type="tns:ArrayOfMediaExistsInBIMResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMediaExistsInBIMResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MediaExistsInBIMResult" nillable="true" type="tns:MediaExistsInBIMResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="IngestRecordExistsInBIM">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="materialIds" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IngestRecordExistsInBIMResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IngestRecordExistsInBIMResult" type="tns:ArrayOfIngestRecordExistsInBIMResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfIngestRecordExistsInBIMResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IngestRecordExistsInBIMResult" nillable="true" type="tns:IngestRecordExistsInBIMResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IngestRecordExistsInBIMResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MaterialID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeviceID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Exists" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CQCIngestRecordExistsInBIM">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="materialIds" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CQCIngestRecordExistsInBIMResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CQCIngestRecordExistsInBIMResult" type="tns:ArrayOfCQCIngestRecordExistsInBIMResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCQCIngestRecordExistsInBIMResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CQCIngestRecordExistsInBIMResult" nillable="true" type="tns:CQCIngestRecordExistsInBIMResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CQCIngestRecordExistsInBIMResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MaterialID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeviceID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RecordedDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Encoded" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Exists" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MediaExistsInBIM-Multi-Scheduled">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="systemName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contextData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="materialId" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="isScheduled" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MediaExistsInBIM-Multi-ScheduledResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MediaExistsInBIM-Multi-ScheduledResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MediaExistsInBIM-Scheduled">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="systemName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contextData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="materialId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="isScheduled" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MediaExistsInBIM-ScheduledResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MediaExistsInBIM-ScheduledResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MediaExistsInBIM-Multi">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="systemName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contextData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="materialId" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MediaExistsInBIM-MultiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MediaExistsInBIM-MultiResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MediaExistsInBIM">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="systemName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contextData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="materialId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MediaExistsInBIMResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MediaExistsInBIMResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMediaExistsInBIMResult">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="taskId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMediaExistsInBIMResultResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMediaExistsInBIMResultResult" type="tns:MediaExistsInBIMServiceResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MediaExistsInBIMServiceResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:TaskResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Result">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="MediaExistsInBIMResult" nillable="true" type="tns:MediaExistsInBIMResult" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="TaskResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:TaskBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="TaskBase">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TaskId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="tns:TaskStatusType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Errors" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreatedOn" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUpdatedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdatedOn" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDelivered" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="TaskStatusType">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="New" />
+          <s:enumeration value="Submitted" />
+          <s:enumeration value="Completed" />
+          <s:enumeration value="Cancelled" />
+          <s:enumeration value="Failed" />
+          <s:enumeration value="Scheduled" />
+          <s:enumeration value="Cancel" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="MediaKilledInBIM-Scheduled">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="systemName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contextData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="materialId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="requestedOn" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="isScheduled" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MediaKilledInBIM-ScheduledResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MediaKilledInBIM-ScheduledResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MediaKilledInBIM-Multiple">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="systemName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contextData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="materialId" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="requestedOn" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MediaKilledInBIM-MultipleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MediaKilledInBIM-MultipleResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MediaKilledInBIM-Single">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="systemName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contextData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="materialId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="requestedOn" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MediaKilledInBIM-SingleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MediaKilledInBIM-SingleResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMediaKilledInBIMResult">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="taskId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMediaKilledInBIMResultResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMediaKilledInBIMResultResult" type="tns:MediaKilledInBIMServiceResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MediaKilledInBIMServiceResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:TaskResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Result">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="BIMKill" nillable="true" type="tns:BIMKill" />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BIMKill">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FailureReason" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsCompleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsKilled" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompletedRequests" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequestedOn" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaterialId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnConfirmed" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MediaKilledInBIMStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="materialIds" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="requestedOn" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MediaKilledInBIMStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MediaKilledInBIMStatusResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="BIMKill" nillable="true" type="tns:BIMKill" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMediaInfoFromPods">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="contentIDs" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMediaInfoFromPodsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMediaInfoFromPodsResult" type="tns:ArrayOfMessageSet" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMessageSet">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MessageSet" nillable="true" type="tns:MessageSet" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MessageSet">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ContentID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasBeenQualityChecked" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasItemsInBim" type="tns:BimStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="NetworkPodsWithMedia" type="tns:ArrayOfNetworkPodSummary" />
+          <s:element minOccurs="0" maxOccurs="1" name="NetworkPodsWithoutMedia" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="BimStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="InBim" />
+          <s:enumeration value="NotInBim" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfNetworkPodSummary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="NetworkPodSummary" nillable="true" type="tns:NetworkPodSummary" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="NetworkPodSummary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="NetworkPodName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContentId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Instances" type="tns:ArrayOfBimMediaPodInstance" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBimMediaPodInstance">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BimMediaPodInstance" nillable="true" type="tns:BimMediaPodInstance" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BimMediaPodInstance">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Path" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReferenceName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QualityReviewer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QualityCheckTimeStamp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PlaylistName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsLocked" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAsRuns">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="network" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="feed" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="eventStartDateTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="eventEndDateTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="includeAsRunEvents" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAsRunsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAsRunsResult" type="tns:ArrayOfAsRun" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAsRun">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AsRun" nillable="true" type="tns:AsRun" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AsRun">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CreatedDateTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedUserName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EventEndDateTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EventStartDateTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Feed" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FileNameModifiedDateTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ModifiedDateTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ModifiedUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Network" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AsRunEvents" type="tns:ArrayOfAsRunEvent" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAsRunEvent">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AsRunEvent" nillable="true" type="tns:AsRunEvent" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AsRunEvent">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Audio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreatedDateTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedUserName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Duration" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="EventNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Feed" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaterialId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContentId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaterialType" type="tns:AsRunEventMaterialType" />
+          <s:element minOccurs="1" maxOccurs="1" name="ModifiedDateTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ModifiedUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Network" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDateTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartMode" type="tns:AsRunEventStartMode" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Video" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VideoDeviceId" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="AsRunEventMaterialType">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="Programme" />
+          <s:enumeration value="CommercialBreakHeader" />
+          <s:enumeration value="CommercialBreakItem" />
+          <s:enumeration value="Junction" />
+          <s:enumeration value="Live" />
+          <s:enumeration value="CommercialBreakOptOutHeader" />
+          <s:enumeration value="RegionalBreakOptOutHeader" />
+          <s:enumeration value="Commercial" />
+          <s:enumeration value="LiveRecord" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="AsRunEventStartMode">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="Fixed" />
+          <s:enumeration value="Variable" />
+          <s:enumeration value="Manual" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetAsRunEventsRangeMaterialTypes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="network" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="feed" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="eventStartDateTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="eventEndDateTime" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="materialTypes" type="tns:ArrayOfAsRunEventMaterialType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAsRunEventMaterialType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AsRunEventMaterialType" type="tns:AsRunEventMaterialType" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAsRunEventsRangeMaterialTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAsRunEventsRangeMaterialTypesResult" type="tns:ArrayOfAsRunEvent" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAsRunEventsRangeMaterialType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="network" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="feed" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="eventStartDateTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="eventEndDateTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="materialType" type="tns:AsRunEventMaterialType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAsRunEventsRangeMaterialTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAsRunEventsRangeMaterialTypeResult" type="tns:ArrayOfAsRunEvent" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAsRunEventsRange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="network" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="feed" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="eventStartDateTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="eventEndDateTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAsRunEventsRangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAsRunEventsRangeResult" type="tns:ArrayOfAsRunEvent" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAsRunEventsMaterialTypes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="network" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="feed" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="eventDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="materialTypes" type="tns:ArrayOfAsRunEventMaterialType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAsRunEventsMaterialTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAsRunEventsMaterialTypesResult" type="tns:ArrayOfAsRunEvent" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAsRunEventsMaterialType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="network" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="feed" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="eventDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="materialType" type="tns:AsRunEventMaterialType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAsRunEventsMaterialTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAsRunEventsMaterialTypeResult" type="tns:ArrayOfAsRunEvent" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAsRunEvents">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="network" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="feed" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="eventDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAsRunEventsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAsRunEventsResult" type="tns:ArrayOfAsRunEvent" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCCFiles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="network" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="feed" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="eventStartDateTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="eventEndDateTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="includeCCEvents" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCCFilesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCCFilesResult" type="tns:ArrayOfCCFile" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCCFile">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CCFile" nillable="true" type="tns:CCFile" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CCFile">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreatedDateTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedUserName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EventEndDateTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EventStartDateTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Feed" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FileNameModifiedDateTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ModifiedDateTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ModifiedUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Network" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CCEvents" type="tns:ArrayOfCCEvent" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCCEvent">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CCEvent" nillable="true" type="tns:CCEvent" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CCEvent">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CCFileID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CaptionStream" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreatedDateTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DisplayMethod" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Feed" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ModifiedDateTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ModifiedUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Network" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDateTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransmittedText" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCCEvents">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="network" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="feed" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="eventDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCCEventsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCCEventsResult" type="tns:ArrayOfCCEvent" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCCEventsRange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="network" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="feed" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="eventStartDateTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="eventEndDateTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCCEventsRangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCCEventsRangeResult" type="tns:ArrayOfCCEvent" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetItemsIngestedIntoBIM">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ingestedStartDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="ingestedEndDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetItemsIngestedIntoBIMResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetItemsIngestedIntoBIMResult" type="tns:ArrayOfItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Item" nillable="true" type="tns:Item" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Item">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MaterialId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaterialType" type="tns:MaterialType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Notes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IngestedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IngestedDate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="MaterialType">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="Programme" />
+          <s:enumeration value="Commercial" />
+          <s:enumeration value="CommercialBreakHeader" />
+          <s:enumeration value="CommercialBreakItem" />
+          <s:enumeration value="Junction" />
+          <s:enumeration value="Live" />
+          <s:enumeration value="CommercialBreakOptOutHeader" />
+          <s:enumeration value="RegionalBreakOptOutHeader" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetInstancesIngestedIntoBIM">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="materialIds" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInstancesIngestedIntoBIMResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInstancesIngestedIntoBIMResult" type="tns:ArrayOfInstance" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInstance">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Instance" nillable="true" type="tns:Instance" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Instance">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MaterialId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OnAirDuration" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RunOnDuration" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubtitleReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Notes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IngestedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IngestedDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EpisodeNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumberOfTapes" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AspectRatio" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaterialType" type="tns:MaterialType" />
+          <s:element minOccurs="1" maxOccurs="1" name="TimeCodeIn" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TimeCodeOut" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="VITC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LTC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VideoCompression" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AudioMode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AudioSampleRate" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AudioCompression" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RunOn" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LongFileId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Encoded" nillable="true" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetInstancesIngestedIntoBIM-Single">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="materialId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInstancesIngestedIntoBIM-SingleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInstancesIngestedIntoBIM-SingleResult" type="tns:ArrayOfInstance" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInstancesIngestedIntoBIMNoFilter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="materialIds" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInstancesIngestedIntoBIMNoFilterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInstancesIngestedIntoBIMNoFilterResult" type="tns:ArrayOfInstance" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SystemCheck">
+        <s:complexType />
+      </s:element>
+      <s:element name="SystemCheckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SystemCheckResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBIMRecordByDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ingestedStartDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="ingestedEndDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBIMRecordByDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBIMRecordByDateResult" type="tns:ArrayOfBIMToolRecord" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBIMToolRecord">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BIMToolRecord" nillable="true" type="tns:BIMToolRecord" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIMToolRecord">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MaterialId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OnAirDuration" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RunOnDuration" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubtitleReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Notes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IngestedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IngestedDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EpisodeNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumberOfTapes" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AspectRatio" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaterialType" type="tns:MaterialType" />
+          <s:element minOccurs="1" maxOccurs="1" name="TimeCodeIn" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TimeCodeOut" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="VITC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LTC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VideoCompression" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AudioMode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AudioSampleRate" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AudioCompression" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RunOn" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetBIMRecordByMaterialId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="materialId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBIMRecordByMaterialIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBIMRecordByMaterialIdResult" type="tns:ArrayOfBIMToolRecord" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBIMRecordByMaterialIds">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="materialIds" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBIMRecordByMaterialIdsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBIMRecordByMaterialIdsResult" type="tns:ArrayOfBIMToolRecord" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="VersionPingSoapIn">
+    <wsdl:part name="parameters" element="tns:VersionPing" />
+  </wsdl:message>
+  <wsdl:message name="VersionPingSoapOut">
+    <wsdl:part name="parameters" element="tns:VersionPingResponse" />
+  </wsdl:message>
+  <wsdl:message name="MediaExistsInBIM-DirectSoapIn">
+    <wsdl:part name="parameters" element="tns:MediaExistsInBIM-Direct" />
+  </wsdl:message>
+  <wsdl:message name="MediaExistsInBIM-DirectSoapOut">
+    <wsdl:part name="parameters" element="tns:MediaExistsInBIM-DirectResponse" />
+  </wsdl:message>
+  <wsdl:message name="MediaExistsInBIM-Multi-DirectSoapIn">
+    <wsdl:part name="parameters" element="tns:MediaExistsInBIM-Multi-Direct" />
+  </wsdl:message>
+  <wsdl:message name="MediaExistsInBIM-Multi-DirectSoapOut">
+    <wsdl:part name="parameters" element="tns:MediaExistsInBIM-Multi-DirectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IngestRecordExistsInBIMSoapIn">
+    <wsdl:part name="parameters" element="tns:IngestRecordExistsInBIM" />
+  </wsdl:message>
+  <wsdl:message name="IngestRecordExistsInBIMSoapOut">
+    <wsdl:part name="parameters" element="tns:IngestRecordExistsInBIMResponse" />
+  </wsdl:message>
+  <wsdl:message name="CQCIngestRecordExistsInBIMSoapIn">
+    <wsdl:part name="parameters" element="tns:CQCIngestRecordExistsInBIM" />
+  </wsdl:message>
+  <wsdl:message name="CQCIngestRecordExistsInBIMSoapOut">
+    <wsdl:part name="parameters" element="tns:CQCIngestRecordExistsInBIMResponse" />
+  </wsdl:message>
+  <wsdl:message name="MediaExistsInBIM-Multi-ScheduledSoapIn">
+    <wsdl:part name="parameters" element="tns:MediaExistsInBIM-Multi-Scheduled" />
+  </wsdl:message>
+  <wsdl:message name="MediaExistsInBIM-Multi-ScheduledSoapOut">
+    <wsdl:part name="parameters" element="tns:MediaExistsInBIM-Multi-ScheduledResponse" />
+  </wsdl:message>
+  <wsdl:message name="MediaExistsInBIM-ScheduledSoapIn">
+    <wsdl:part name="parameters" element="tns:MediaExistsInBIM-Scheduled" />
+  </wsdl:message>
+  <wsdl:message name="MediaExistsInBIM-ScheduledSoapOut">
+    <wsdl:part name="parameters" element="tns:MediaExistsInBIM-ScheduledResponse" />
+  </wsdl:message>
+  <wsdl:message name="MediaExistsInBIM-MultiSoapIn">
+    <wsdl:part name="parameters" element="tns:MediaExistsInBIM-Multi" />
+  </wsdl:message>
+  <wsdl:message name="MediaExistsInBIM-MultiSoapOut">
+    <wsdl:part name="parameters" element="tns:MediaExistsInBIM-MultiResponse" />
+  </wsdl:message>
+  <wsdl:message name="MediaExistsInBIMSoapIn">
+    <wsdl:part name="parameters" element="tns:MediaExistsInBIM" />
+  </wsdl:message>
+  <wsdl:message name="MediaExistsInBIMSoapOut">
+    <wsdl:part name="parameters" element="tns:MediaExistsInBIMResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMediaExistsInBIMResultSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMediaExistsInBIMResult" />
+  </wsdl:message>
+  <wsdl:message name="GetMediaExistsInBIMResultSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMediaExistsInBIMResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="MediaKilledInBIM-ScheduledSoapIn">
+    <wsdl:part name="parameters" element="tns:MediaKilledInBIM-Scheduled" />
+  </wsdl:message>
+  <wsdl:message name="MediaKilledInBIM-ScheduledSoapOut">
+    <wsdl:part name="parameters" element="tns:MediaKilledInBIM-ScheduledResponse" />
+  </wsdl:message>
+  <wsdl:message name="MediaKilledInBIM-MultipleSoapIn">
+    <wsdl:part name="parameters" element="tns:MediaKilledInBIM-Multiple" />
+  </wsdl:message>
+  <wsdl:message name="MediaKilledInBIM-MultipleSoapOut">
+    <wsdl:part name="parameters" element="tns:MediaKilledInBIM-MultipleResponse" />
+  </wsdl:message>
+  <wsdl:message name="MediaKilledInBIM-SingleSoapIn">
+    <wsdl:part name="parameters" element="tns:MediaKilledInBIM-Single" />
+  </wsdl:message>
+  <wsdl:message name="MediaKilledInBIM-SingleSoapOut">
+    <wsdl:part name="parameters" element="tns:MediaKilledInBIM-SingleResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMediaKilledInBIMResultSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMediaKilledInBIMResult" />
+  </wsdl:message>
+  <wsdl:message name="GetMediaKilledInBIMResultSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMediaKilledInBIMResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="MediaKilledInBIMStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:MediaKilledInBIMStatus" />
+  </wsdl:message>
+  <wsdl:message name="MediaKilledInBIMStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:MediaKilledInBIMStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMediaInfoFromPodsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMediaInfoFromPods" />
+  </wsdl:message>
+  <wsdl:message name="GetMediaInfoFromPodsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMediaInfoFromPodsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAsRunsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAsRuns" />
+  </wsdl:message>
+  <wsdl:message name="GetAsRunsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAsRunsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAsRunEventsRangeMaterialTypesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAsRunEventsRangeMaterialTypes" />
+  </wsdl:message>
+  <wsdl:message name="GetAsRunEventsRangeMaterialTypesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAsRunEventsRangeMaterialTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAsRunEventsRangeMaterialTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAsRunEventsRangeMaterialType" />
+  </wsdl:message>
+  <wsdl:message name="GetAsRunEventsRangeMaterialTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAsRunEventsRangeMaterialTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAsRunEventsRangeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAsRunEventsRange" />
+  </wsdl:message>
+  <wsdl:message name="GetAsRunEventsRangeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAsRunEventsRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAsRunEventsMaterialTypesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAsRunEventsMaterialTypes" />
+  </wsdl:message>
+  <wsdl:message name="GetAsRunEventsMaterialTypesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAsRunEventsMaterialTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAsRunEventsMaterialTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAsRunEventsMaterialType" />
+  </wsdl:message>
+  <wsdl:message name="GetAsRunEventsMaterialTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAsRunEventsMaterialTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAsRunEventsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAsRunEvents" />
+  </wsdl:message>
+  <wsdl:message name="GetAsRunEventsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAsRunEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCCFilesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCCFiles" />
+  </wsdl:message>
+  <wsdl:message name="GetCCFilesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCCFilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCCEventsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCCEvents" />
+  </wsdl:message>
+  <wsdl:message name="GetCCEventsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCCEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCCEventsRangeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCCEventsRange" />
+  </wsdl:message>
+  <wsdl:message name="GetCCEventsRangeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCCEventsRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetItemsIngestedIntoBIMSoapIn">
+    <wsdl:part name="parameters" element="tns:GetItemsIngestedIntoBIM" />
+  </wsdl:message>
+  <wsdl:message name="GetItemsIngestedIntoBIMSoapOut">
+    <wsdl:part name="parameters" element="tns:GetItemsIngestedIntoBIMResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInstancesIngestedIntoBIMSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInstancesIngestedIntoBIM" />
+  </wsdl:message>
+  <wsdl:message name="GetInstancesIngestedIntoBIMSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInstancesIngestedIntoBIMResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInstancesIngestedIntoBIM-SingleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInstancesIngestedIntoBIM-Single" />
+  </wsdl:message>
+  <wsdl:message name="GetInstancesIngestedIntoBIM-SingleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInstancesIngestedIntoBIM-SingleResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInstancesIngestedIntoBIMNoFilterSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInstancesIngestedIntoBIMNoFilter" />
+  </wsdl:message>
+  <wsdl:message name="GetInstancesIngestedIntoBIMNoFilterSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInstancesIngestedIntoBIMNoFilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="SystemCheckSoapIn">
+    <wsdl:part name="parameters" element="tns:SystemCheck" />
+  </wsdl:message>
+  <wsdl:message name="SystemCheckSoapOut">
+    <wsdl:part name="parameters" element="tns:SystemCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBIMRecordByDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBIMRecordByDate" />
+  </wsdl:message>
+  <wsdl:message name="GetBIMRecordByDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBIMRecordByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBIMRecordByMaterialIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBIMRecordByMaterialId" />
+  </wsdl:message>
+  <wsdl:message name="GetBIMRecordByMaterialIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBIMRecordByMaterialIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBIMRecordByMaterialIdsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBIMRecordByMaterialIds" />
+  </wsdl:message>
+  <wsdl:message name="GetBIMRecordByMaterialIdsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBIMRecordByMaterialIdsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="FBDWSSoap">
+    <wsdl:operation name="VersionPing">
+      <wsdl:input message="tns:VersionPingSoapIn" />
+      <wsdl:output message="tns:VersionPingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MediaExistsInBIM">
+      <wsdl:input name="MediaExistsInBIM-Direct" message="tns:MediaExistsInBIM-DirectSoapIn" />
+      <wsdl:output name="MediaExistsInBIM-Direct" message="tns:MediaExistsInBIM-DirectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MediaExistsInBIM">
+      <wsdl:input name="MediaExistsInBIM-Multi-Direct" message="tns:MediaExistsInBIM-Multi-DirectSoapIn" />
+      <wsdl:output name="MediaExistsInBIM-Multi-Direct" message="tns:MediaExistsInBIM-Multi-DirectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IngestRecordExistsInBIM">
+      <wsdl:input message="tns:IngestRecordExistsInBIMSoapIn" />
+      <wsdl:output message="tns:IngestRecordExistsInBIMSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CQCIngestRecordExistsInBIM">
+      <wsdl:input message="tns:CQCIngestRecordExistsInBIMSoapIn" />
+      <wsdl:output message="tns:CQCIngestRecordExistsInBIMSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MediaExistsInBIM">
+      <wsdl:input name="MediaExistsInBIM-Multi-Scheduled" message="tns:MediaExistsInBIM-Multi-ScheduledSoapIn" />
+      <wsdl:output name="MediaExistsInBIM-Multi-Scheduled" message="tns:MediaExistsInBIM-Multi-ScheduledSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MediaExistsInBIM">
+      <wsdl:input name="MediaExistsInBIM-Scheduled" message="tns:MediaExistsInBIM-ScheduledSoapIn" />
+      <wsdl:output name="MediaExistsInBIM-Scheduled" message="tns:MediaExistsInBIM-ScheduledSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MediaExistsInBIM">
+      <wsdl:input name="MediaExistsInBIM-Multi" message="tns:MediaExistsInBIM-MultiSoapIn" />
+      <wsdl:output name="MediaExistsInBIM-Multi" message="tns:MediaExistsInBIM-MultiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MediaExistsInBIM">
+      <wsdl:input message="tns:MediaExistsInBIMSoapIn" />
+      <wsdl:output message="tns:MediaExistsInBIMSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMediaExistsInBIMResult">
+      <wsdl:input message="tns:GetMediaExistsInBIMResultSoapIn" />
+      <wsdl:output message="tns:GetMediaExistsInBIMResultSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MediaKilledInBIM">
+      <wsdl:input name="MediaKilledInBIM-Scheduled" message="tns:MediaKilledInBIM-ScheduledSoapIn" />
+      <wsdl:output name="MediaKilledInBIM-Scheduled" message="tns:MediaKilledInBIM-ScheduledSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MediaKilledInBIM">
+      <wsdl:input name="MediaKilledInBIM-Multiple" message="tns:MediaKilledInBIM-MultipleSoapIn" />
+      <wsdl:output name="MediaKilledInBIM-Multiple" message="tns:MediaKilledInBIM-MultipleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MediaKilledInBIM">
+      <wsdl:input name="MediaKilledInBIM-Single" message="tns:MediaKilledInBIM-SingleSoapIn" />
+      <wsdl:output name="MediaKilledInBIM-Single" message="tns:MediaKilledInBIM-SingleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMediaKilledInBIMResult">
+      <wsdl:input message="tns:GetMediaKilledInBIMResultSoapIn" />
+      <wsdl:output message="tns:GetMediaKilledInBIMResultSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MediaKilledInBIMStatus">
+      <wsdl:input message="tns:MediaKilledInBIMStatusSoapIn" />
+      <wsdl:output message="tns:MediaKilledInBIMStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMediaInfoFromPods">
+      <wsdl:input message="tns:GetMediaInfoFromPodsSoapIn" />
+      <wsdl:output message="tns:GetMediaInfoFromPodsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAsRuns">
+      <wsdl:input message="tns:GetAsRunsSoapIn" />
+      <wsdl:output message="tns:GetAsRunsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAsRunEvents">
+      <wsdl:input name="GetAsRunEventsRangeMaterialTypes" message="tns:GetAsRunEventsRangeMaterialTypesSoapIn" />
+      <wsdl:output name="GetAsRunEventsRangeMaterialTypes" message="tns:GetAsRunEventsRangeMaterialTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAsRunEvents">
+      <wsdl:input name="GetAsRunEventsRangeMaterialType" message="tns:GetAsRunEventsRangeMaterialTypeSoapIn" />
+      <wsdl:output name="GetAsRunEventsRangeMaterialType" message="tns:GetAsRunEventsRangeMaterialTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAsRunEvents">
+      <wsdl:input name="GetAsRunEventsRange" message="tns:GetAsRunEventsRangeSoapIn" />
+      <wsdl:output name="GetAsRunEventsRange" message="tns:GetAsRunEventsRangeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAsRunEvents">
+      <wsdl:input name="GetAsRunEventsMaterialTypes" message="tns:GetAsRunEventsMaterialTypesSoapIn" />
+      <wsdl:output name="GetAsRunEventsMaterialTypes" message="tns:GetAsRunEventsMaterialTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAsRunEvents">
+      <wsdl:input name="GetAsRunEventsMaterialType" message="tns:GetAsRunEventsMaterialTypeSoapIn" />
+      <wsdl:output name="GetAsRunEventsMaterialType" message="tns:GetAsRunEventsMaterialTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAsRunEvents">
+      <wsdl:input message="tns:GetAsRunEventsSoapIn" />
+      <wsdl:output message="tns:GetAsRunEventsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCCFiles">
+      <wsdl:input message="tns:GetCCFilesSoapIn" />
+      <wsdl:output message="tns:GetCCFilesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCCEvents">
+      <wsdl:input message="tns:GetCCEventsSoapIn" />
+      <wsdl:output message="tns:GetCCEventsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCCEvents">
+      <wsdl:input name="GetCCEventsRange" message="tns:GetCCEventsRangeSoapIn" />
+      <wsdl:output name="GetCCEventsRange" message="tns:GetCCEventsRangeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemsIngestedIntoBIM">
+      <wsdl:input message="tns:GetItemsIngestedIntoBIMSoapIn" />
+      <wsdl:output message="tns:GetItemsIngestedIntoBIMSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInstancesIngestedIntoBIM">
+      <wsdl:input message="tns:GetInstancesIngestedIntoBIMSoapIn" />
+      <wsdl:output message="tns:GetInstancesIngestedIntoBIMSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInstancesIngestedIntoBIM">
+      <wsdl:input name="GetInstancesIngestedIntoBIM-Single" message="tns:GetInstancesIngestedIntoBIM-SingleSoapIn" />
+      <wsdl:output name="GetInstancesIngestedIntoBIM-Single" message="tns:GetInstancesIngestedIntoBIM-SingleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInstancesIngestedIntoBIMNoFilter">
+      <wsdl:input message="tns:GetInstancesIngestedIntoBIMNoFilterSoapIn" />
+      <wsdl:output message="tns:GetInstancesIngestedIntoBIMNoFilterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SystemCheck">
+      <wsdl:input message="tns:SystemCheckSoapIn" />
+      <wsdl:output message="tns:SystemCheckSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBIMRecordByDate">
+      <wsdl:input message="tns:GetBIMRecordByDateSoapIn" />
+      <wsdl:output message="tns:GetBIMRecordByDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBIMRecordByMaterialId">
+      <wsdl:input message="tns:GetBIMRecordByMaterialIdSoapIn" />
+      <wsdl:output message="tns:GetBIMRecordByMaterialIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBIMRecordByMaterialIds">
+      <wsdl:input message="tns:GetBIMRecordByMaterialIdsSoapIn" />
+      <wsdl:output message="tns:GetBIMRecordByMaterialIdsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FBDWSSoap" type="tns:FBDWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VersionPing">
+      <soap:operation soapAction="http://tempuri.org/VersionPing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MediaExistsInBIM">
+      <soap:operation soapAction="http://tempuri.org/MediaExistsInBIM-Direct" style="document" />
+      <wsdl:input name="MediaExistsInBIM-Direct">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="MediaExistsInBIM-Direct">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MediaExistsInBIM">
+      <soap:operation soapAction="http://tempuri.org/MediaExistsInBIM-Multi-Direct" style="document" />
+      <wsdl:input name="MediaExistsInBIM-Multi-Direct">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="MediaExistsInBIM-Multi-Direct">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngestRecordExistsInBIM">
+      <soap:operation soapAction="http://tempuri.org/IngestRecordExistsInBIM" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CQCIngestRecordExistsInBIM">
+      <soap:operation soapAction="http://tempuri.org/CQCIngestRecordExistsInBIM" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MediaExistsInBIM">
+      <soap:operation soapAction="http://tempuri.org/MediaExistsInBIM-Multi-Scheduled" style="document" />
+      <wsdl:input name="MediaExistsInBIM-Multi-Scheduled">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="MediaExistsInBIM-Multi-Scheduled">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MediaExistsInBIM">
+      <soap:operation soapAction="http://tempuri.org/MediaExistsInBIM-Scheduled" style="document" />
+      <wsdl:input name="MediaExistsInBIM-Scheduled">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="MediaExistsInBIM-Scheduled">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MediaExistsInBIM">
+      <soap:operation soapAction="http://tempuri.org/MediaExistsInBIM-Multi" style="document" />
+      <wsdl:input name="MediaExistsInBIM-Multi">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="MediaExistsInBIM-Multi">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MediaExistsInBIM">
+      <soap:operation soapAction="http://tempuri.org/MediaExistsInBIM" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMediaExistsInBIMResult">
+      <soap:operation soapAction="http://tempuri.org/GetMediaExistsInBIMResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MediaKilledInBIM">
+      <soap:operation soapAction="http://tempuri.org/MediaKilledInBIM-Scheduled" style="document" />
+      <wsdl:input name="MediaKilledInBIM-Scheduled">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="MediaKilledInBIM-Scheduled">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MediaKilledInBIM">
+      <soap:operation soapAction="http://tempuri.org/MediaKilledInBIM-Multiple" style="document" />
+      <wsdl:input name="MediaKilledInBIM-Multiple">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="MediaKilledInBIM-Multiple">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MediaKilledInBIM">
+      <soap:operation soapAction="http://tempuri.org/MediaKilledInBIM-Single" style="document" />
+      <wsdl:input name="MediaKilledInBIM-Single">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="MediaKilledInBIM-Single">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMediaKilledInBIMResult">
+      <soap:operation soapAction="http://tempuri.org/GetMediaKilledInBIMResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MediaKilledInBIMStatus">
+      <soap:operation soapAction="http://tempuri.org/MediaKilledInBIMStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMediaInfoFromPods">
+      <soap:operation soapAction="http://tempuri.org/GetMediaInfoFromPods" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAsRuns">
+      <soap:operation soapAction="http://tempuri.org/GetAsRuns" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAsRunEvents">
+      <soap:operation soapAction="http://tempuri.org/GetAsRunEventsRangeMaterialTypes" style="document" />
+      <wsdl:input name="GetAsRunEventsRangeMaterialTypes">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAsRunEventsRangeMaterialTypes">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAsRunEvents">
+      <soap:operation soapAction="http://tempuri.org/GetAsRunEventsRangeMaterialType" style="document" />
+      <wsdl:input name="GetAsRunEventsRangeMaterialType">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAsRunEventsRangeMaterialType">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAsRunEvents">
+      <soap:operation soapAction="http://tempuri.org/GetAsRunEventsRange" style="document" />
+      <wsdl:input name="GetAsRunEventsRange">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAsRunEventsRange">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAsRunEvents">
+      <soap:operation soapAction="http://tempuri.org/GetAsRunEventsMaterialTypes" style="document" />
+      <wsdl:input name="GetAsRunEventsMaterialTypes">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAsRunEventsMaterialTypes">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAsRunEvents">
+      <soap:operation soapAction="http://tempuri.org/GetAsRunEventsMaterialType" style="document" />
+      <wsdl:input name="GetAsRunEventsMaterialType">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAsRunEventsMaterialType">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAsRunEvents">
+      <soap:operation soapAction="http://tempuri.org/GetAsRunEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCCFiles">
+      <soap:operation soapAction="http://tempuri.org/GetCCFiles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCCEvents">
+      <soap:operation soapAction="http://tempuri.org/GetCCEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCCEvents">
+      <soap:operation soapAction="http://tempuri.org/GetCCEventsRange" style="document" />
+      <wsdl:input name="GetCCEventsRange">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetCCEventsRange">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemsIngestedIntoBIM">
+      <soap:operation soapAction="http://tempuri.org/GetItemsIngestedIntoBIM" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstancesIngestedIntoBIM">
+      <soap:operation soapAction="http://tempuri.org/GetInstancesIngestedIntoBIM" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstancesIngestedIntoBIM">
+      <soap:operation soapAction="http://tempuri.org/GetInstancesIngestedIntoBIM-Single" style="document" />
+      <wsdl:input name="GetInstancesIngestedIntoBIM-Single">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetInstancesIngestedIntoBIM-Single">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstancesIngestedIntoBIMNoFilter">
+      <soap:operation soapAction="http://tempuri.org/GetInstancesIngestedIntoBIMNoFilter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SystemCheck">
+      <soap:operation soapAction="http://tempuri.org/SystemCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBIMRecordByDate">
+      <soap:operation soapAction="http://tempuri.org/GetBIMRecordByDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBIMRecordByMaterialId">
+      <soap:operation soapAction="http://tempuri.org/GetBIMRecordByMaterialId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBIMRecordByMaterialIds">
+      <soap:operation soapAction="http://tempuri.org/GetBIMRecordByMaterialIds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FBDWSSoap12" type="tns:FBDWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VersionPing">
+      <soap12:operation soapAction="http://tempuri.org/VersionPing" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MediaExistsInBIM">
+      <soap12:operation soapAction="http://tempuri.org/MediaExistsInBIM-Direct" style="document" />
+      <wsdl:input name="MediaExistsInBIM-Direct">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="MediaExistsInBIM-Direct">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MediaExistsInBIM">
+      <soap12:operation soapAction="http://tempuri.org/MediaExistsInBIM-Multi-Direct" style="document" />
+      <wsdl:input name="MediaExistsInBIM-Multi-Direct">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="MediaExistsInBIM-Multi-Direct">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IngestRecordExistsInBIM">
+      <soap12:operation soapAction="http://tempuri.org/IngestRecordExistsInBIM" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CQCIngestRecordExistsInBIM">
+      <soap12:operation soapAction="http://tempuri.org/CQCIngestRecordExistsInBIM" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MediaExistsInBIM">
+      <soap12:operation soapAction="http://tempuri.org/MediaExistsInBIM-Multi-Scheduled" style="document" />
+      <wsdl:input name="MediaExistsInBIM-Multi-Scheduled">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="MediaExistsInBIM-Multi-Scheduled">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MediaExistsInBIM">
+      <soap12:operation soapAction="http://tempuri.org/MediaExistsInBIM-Scheduled" style="document" />
+      <wsdl:input name="MediaExistsInBIM-Scheduled">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="MediaExistsInBIM-Scheduled">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MediaExistsInBIM">
+      <soap12:operation soapAction="http://tempuri.org/MediaExistsInBIM-Multi" style="document" />
+      <wsdl:input name="MediaExistsInBIM-Multi">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="MediaExistsInBIM-Multi">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MediaExistsInBIM">
+      <soap12:operation soapAction="http://tempuri.org/MediaExistsInBIM" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMediaExistsInBIMResult">
+      <soap12:operation soapAction="http://tempuri.org/GetMediaExistsInBIMResult" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MediaKilledInBIM">
+      <soap12:operation soapAction="http://tempuri.org/MediaKilledInBIM-Scheduled" style="document" />
+      <wsdl:input name="MediaKilledInBIM-Scheduled">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="MediaKilledInBIM-Scheduled">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MediaKilledInBIM">
+      <soap12:operation soapAction="http://tempuri.org/MediaKilledInBIM-Multiple" style="document" />
+      <wsdl:input name="MediaKilledInBIM-Multiple">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="MediaKilledInBIM-Multiple">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MediaKilledInBIM">
+      <soap12:operation soapAction="http://tempuri.org/MediaKilledInBIM-Single" style="document" />
+      <wsdl:input name="MediaKilledInBIM-Single">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="MediaKilledInBIM-Single">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMediaKilledInBIMResult">
+      <soap12:operation soapAction="http://tempuri.org/GetMediaKilledInBIMResult" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MediaKilledInBIMStatus">
+      <soap12:operation soapAction="http://tempuri.org/MediaKilledInBIMStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMediaInfoFromPods">
+      <soap12:operation soapAction="http://tempuri.org/GetMediaInfoFromPods" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAsRuns">
+      <soap12:operation soapAction="http://tempuri.org/GetAsRuns" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAsRunEvents">
+      <soap12:operation soapAction="http://tempuri.org/GetAsRunEventsRangeMaterialTypes" style="document" />
+      <wsdl:input name="GetAsRunEventsRangeMaterialTypes">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAsRunEventsRangeMaterialTypes">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAsRunEvents">
+      <soap12:operation soapAction="http://tempuri.org/GetAsRunEventsRangeMaterialType" style="document" />
+      <wsdl:input name="GetAsRunEventsRangeMaterialType">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAsRunEventsRangeMaterialType">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAsRunEvents">
+      <soap12:operation soapAction="http://tempuri.org/GetAsRunEventsRange" style="document" />
+      <wsdl:input name="GetAsRunEventsRange">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAsRunEventsRange">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAsRunEvents">
+      <soap12:operation soapAction="http://tempuri.org/GetAsRunEventsMaterialTypes" style="document" />
+      <wsdl:input name="GetAsRunEventsMaterialTypes">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAsRunEventsMaterialTypes">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAsRunEvents">
+      <soap12:operation soapAction="http://tempuri.org/GetAsRunEventsMaterialType" style="document" />
+      <wsdl:input name="GetAsRunEventsMaterialType">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAsRunEventsMaterialType">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAsRunEvents">
+      <soap12:operation soapAction="http://tempuri.org/GetAsRunEvents" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCCFiles">
+      <soap12:operation soapAction="http://tempuri.org/GetCCFiles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCCEvents">
+      <soap12:operation soapAction="http://tempuri.org/GetCCEvents" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCCEvents">
+      <soap12:operation soapAction="http://tempuri.org/GetCCEventsRange" style="document" />
+      <wsdl:input name="GetCCEventsRange">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetCCEventsRange">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemsIngestedIntoBIM">
+      <soap12:operation soapAction="http://tempuri.org/GetItemsIngestedIntoBIM" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstancesIngestedIntoBIM">
+      <soap12:operation soapAction="http://tempuri.org/GetInstancesIngestedIntoBIM" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstancesIngestedIntoBIM">
+      <soap12:operation soapAction="http://tempuri.org/GetInstancesIngestedIntoBIM-Single" style="document" />
+      <wsdl:input name="GetInstancesIngestedIntoBIM-Single">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetInstancesIngestedIntoBIM-Single">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInstancesIngestedIntoBIMNoFilter">
+      <soap12:operation soapAction="http://tempuri.org/GetInstancesIngestedIntoBIMNoFilter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SystemCheck">
+      <soap12:operation soapAction="http://tempuri.org/SystemCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBIMRecordByDate">
+      <soap12:operation soapAction="http://tempuri.org/GetBIMRecordByDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBIMRecordByMaterialId">
+      <soap12:operation soapAction="http://tempuri.org/GetBIMRecordByMaterialId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBIMRecordByMaterialIds">
+      <soap12:operation soapAction="http://tempuri.org/GetBIMRecordByMaterialIds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FBDWS">
+    <wsdl:port name="FBDWSSoap" binding="tns:FBDWSSoap">
+      <soap:address location="http://fbd.turner.com/fbdws.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FBDWSSoap12" binding="tns:FBDWSSoap12">
+      <soap12:address location="http://fbd.turner.com/fbdws.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

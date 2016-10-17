@@ -28,7 +28,18 @@ namespace AzurePaasTest2.Controllers
 
             ViewBag.User = User;
             ViewBag.ConfigValue = ConfigurationManager.AppSettings["TestConfigSetting"];
-            
+
+
+            try
+            {
+                var fbd = new AzurePaasTest.FBD.FBDWS();
+                ViewBag.NetworkingTest = fbd.VersionPing();
+
+            }
+            catch (Exception exc)
+            {
+                ViewBag.NetworkingTest = exc.ToString();
+            }
 
             return View();
         }
