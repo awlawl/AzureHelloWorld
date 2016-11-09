@@ -11,7 +11,7 @@ namespace ConsoleWebJob
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Running here part 2.");
+            Console.WriteLine("Running here part 3.");
             Debug.WriteLine("This is a debug message.");
 
         }
